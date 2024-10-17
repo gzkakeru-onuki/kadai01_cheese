@@ -1,0 +1,517 @@
+/* ここから下に記載していく */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+
+}
+
+#loading {
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+    background-color: whitesmoke;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    margin:200px auto;
+    background-color:black;
+    border-radius:100%;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@keyframes sk-scaleout {
+    0%{
+        transform: scale(0);
+    }100%{
+        transform: scale(1.0);
+        opacity: 0;
+    }
+}
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.fadein {
+    opacity: 0;
+    transform: translate(0, 0);
+    transition: all 1.5s;
+}
+
+.fadein.fadein-bottom {
+    transform: translate(0, 30px);
+}
+
+.fadein.scrollin {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+}
+
+
+
+.header {
+    width: 100%;
+    background-color: white;
+    color: black;
+    display: flex;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    align-items: center;
+    z-index: 1;
+    border: 2px solid gray;
+}
+
+.header-logo {
+    font-size: 30px;
+    width: 30%;
+    color: black;
+    margin-left: 20px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+ul {
+    display: flex;
+}
+
+.header-items {
+    width: 100%;
+    margin-left: 600px;
+}
+
+.navigation {
+    color: black;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.navigation:hover {
+    opacity: 60%;
+}
+
+.promotevideo {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.text {
+    position: absolute;
+    top: 230px;
+    left: 330px;
+}
+
+.text h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    -webkit-text-stroke: 1px black;
+}
+
+.text p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    -webkit-text-stroke: 1.2px black;
+}
+
+.promotevideo video {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 1;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
+.scroll_down{
+  position:absolute;
+  bottom: 0px;
+  left: 50%;
+}
+
+.scroll_down a{
+  position: absolute;
+  left: 10px;
+  bottom: 87px;
+  color: #000;
+  font-size: 14px;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: .2em;
+  writing-mode: vertical-lr;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.scroll_down:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background:#000;
+  animation:
+    circlemove 1.6s ease-in-out infinite,
+    cirlemovehide 1.6s ease-out infinite;
+}
+
+@keyframes circlemove{
+  0%{bottom:160px;}
+  100%{bottom:0px;}
+}
+
+@keyframes cirlemovehide{
+  0%{opacity:0}
+  50%{opacity:1;}
+  80%{opacity:0.9;}
+  100%{opacity:0;}
+}
+
+.scroll_down:after{
+  content:"";
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:2px;
+  height: 160px;
+  background:#000;
+}
+
+.about {
+    width: 100%;
+    text-align: center;
+}
+
+.about p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.border-bottom-box {
+    height: 80px;
+    border-bottom: 2px solid gray;
+}
+
+
+.about-title {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#process {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+    
+}
+
+.process1 {
+    border-bottom: 2px solid gray;
+    margin-bottom: 30px;
+}
+
+.process-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.process-text h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.process-text p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+
+.process-item {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.cow-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.make-img {
+    width: 500px;
+    height: 480px;
+    object-fit: cover;
+}
+
+.process-bottom {
+    margin-bottom: 190px;
+}
+
+/* スライド全体の設定 */
+.slide-container{
+    width: 100%;
+    max-width: 1500px;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10%;
+}
+
+/* スライドの複製を追加してループさせる */
+.slide-wrapper {
+    display: flex;
+    animation: slide-flow 30s infinite linear;
+    width: calc(350px * 10); /* スライド画像の数 * 幅 */
+}
+
+
+/* スライド画像のサイズ */
+.slide {
+    width: 350px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+/* スライドアニメーションのキーフレーム */
+@keyframes slide-flow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-350px * 5)); } /* 5つの画像分左に移動 */
+}
+
+
+.news-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.news {
+    width: 100%;
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.news-item {
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    margin-right: 20px;
+    border: 2px solid gray;
+}
+
+.news-item:hover {
+    box-shadow: 7px 50px 21px -25px rgba(0, 0, 0, 0.1), 7px 0px 0px 1px rgba(10, 10, 10, 0.02);
+    transform: translateY(-4px);
+}
+
+.news-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.news-item p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.news-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-subtitle {
+    font-size: 20px;
+    border-top: 2px solid gray;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.more {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.more-button {
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    font-size: 15px;
+    margin-bottom: 120px;
+}
+
+.more-button:hover {
+    box-shadow: 7px 50px 21px -25px rgba(0, 0, 0, 0.1), 7px 0px 0px 1px rgba(10, 10, 10, 0.02);
+    transform: translateY(-4px);
+}
+
+
+.access {
+    text-align: center;
+    height: 800px;
+    background-color: #fafafa;
+}
+
+.access iframe {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 60px;
+
+}
+
+.access-title {
+    font-size: large;
+    padding-top: -10px;
+}
+
+.access-inf {
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.access-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    height: 260px;
+}
+
+.access-list {
+    display: flex;
+    margin-left: 150px;
+}
+
+.name {
+    width: 200px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.access-right {
+    margin-left: 10px;
+
+}
+
+.contact {
+    margin-top: 60px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.contact h1 {
+    font-size: large;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.contact p {
+    margin-bottom: 20px;
+}
+
+
+.contact-form {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.contact-table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.contact-item,
+.contact-body {
+    padding: 15px;
+    border-top: 2px solid gray;
+}
+
+.contact-item {
+    vertical-align: top;
+    border-right: 2px solid gray;
+    text-align: left;
+    width: 30%;
+}
+
+.contact-body {
+    width: 70%;
+}
+
+.form-text {
+    width: 60%;
+}
+
+.form-select {
+    width: 63%;
+}
+
+.motivation{
+    display: block;
+    margin-bottom: 20px;
+
+}
+
+.form-textarea {
+    height: 100px;
+    width: 500px;
+}
+
+.last-tr {
+    border-bottom: 2px solid gray;
+}
+
+.send {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.send-button {
+    margin-top: 30px;
+    margin-bottom:30px;
+    background-color: white;
+    border: 2px solid gray;
+    text-align: center;
+    height: 50px;
+    width: 200px;    
+}
+
+.send-button:hover {
+    box-shadow: 7px 50px 21px -25px rgba(0, 0, 0, 0.1), 7px 0px 0px 1px rgba(10, 10, 10, 0.02);
+    transform: translateY(-4px);
+}
+
+.footer {
+    font-size: large;
+    display: flex;
+    border-top: 2px solid gray;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+#news,#access,#contact {
+    padding-top: 90px;
+    margin-top: -90px;
+}
