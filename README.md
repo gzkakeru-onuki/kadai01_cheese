@@ -5,7 +5,7 @@
 Geekになるために食べられるチーズを生産している会社のHPです。
 
 ## ③アプリのデプロイURL
-デプロイ予定です；；
+https://gzkakeru-onuki.github.io/kadai01_cheese/
 
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 なし
